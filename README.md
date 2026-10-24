@@ -1,78 +1,56 @@
-# Portfolio Template
+# Cynthia Creator
 
-A personal portfolio with a fixed profile rail, an animated contour background, a bento home screen, a 3D page carousel, and a separate app-style layout for phones. Every piece of content is a placeholder. You swap in your own.
+A personal portfolio website built to showcase my creative work, projects, services, and contact details in a modern and polished online presence.
 
-Stack: Vite 6, React 19, TypeScript, plain CSS custom properties, Three.js, GSAP, Lenis, React Router 7, Phosphor icons, Poppins.
+This portfolio combines a desktop profile layout with a mobile app-inspired interface so it feels premium across devices.
 
-## What it looks like
+## Stack
 
-Straight from this repo, placeholders and all.
+- Vite 6
+- React 19
+- TypeScript
+- CSS custom properties
+- Three.js
+- GSAP
+- Lenis
+- React Router 7
+- Phosphor icons
 
-**Desktop** - the profile rail, the contour background and the bento home.
-
-![Desktop: profile rail on the left, headline, tools marquee and a bento grid of project, about, credential, services and testimonial cards](docs/screenshots/desktop.png)
-
-**Phone** - an app-style layout: a floating tab bar, a glance widget for your stats, app-icon tools and swipeable shelf cards. Light and dark.
-
-<p>
-  <img src="docs/screenshots/mobile-light.png" alt="Phone, light theme: profile header, one-line headline, stats widget, tools row and explore cards above a floating tab bar" width="300">
-  &nbsp;&nbsp;
-  <img src="docs/screenshots/mobile-dark.png" alt="Phone, dark theme: the same Home screen on a navy background" width="300">
-</p>
-
-## Run it
+## Run locally
 
 ```bash
 npm install
 npm run dev        # http://localhost:5173
 npm run build      # typecheck + production build to dist/
-npm run lint       # ESLint with the TypeScript parser and the React hooks rules
+npm run lint       # ESLint with TypeScript and React hooks rules
 ```
 
-## Make it yours
+## Customize your portfolio
 
-Every spot that needs your content says **PLACEHOLDER** and describes what goes there. You can edit the files yourself, or open the repo in an AI coding tool and tell it what to put in each spot.
+Edit the content in the following files to make the site your own:
 
 | What | Where |
 |---|---|
-| Name, handle, photo, email, socials, Home headline, phone stats and their icons | `src/data/profile.ts` (start here) |
-| Phone headline size (holds your headline on one line) | `--headline-em` in `src/styles/mobile-pass.css` - the comment there shows how to measure it |
-| Your photo | `public/avatar.svg` (or point `avatarSrc` at a `.webp`/`.png`) |
-| Page headlines and copy | the top of each page component: `ProjectsGrid`, `ServicesGrid`, `ShowcaseGrid`, `TestimonialsGrid`, `AboutGrid`, `ContactGrid` in `src/components/` |
-| Funnel pages and websites (the 3D carousel) | `src/data/funnels.ts` + HTML files in `public/funnels/` and `public/samples/` |
-| Projects, apps, side builds | `src/data/projects.ts`, `src/data/ai-stack.ts` |
+| Name, bio, socials, stats, headline, and contact details | `src/data/profile.ts` |
+| Projects and featured work | `src/data/projects.ts` |
+| Tools and technologies | `src/data/ai-stack.ts` |
 | FAQs | `src/data/faqs.ts` |
-| Tools marquee | `src/components/ToolsMarquee.tsx` (logos in `public/icons/`) |
-| Testimonial videos | `public/testimonials/`, then set `src` in `TestimonialsGrid.tsx` |
-| Contact form | `src/lib/contact.ts` (opens the visitor's email app by default; set `VITE_CONTACT_ENDPOINT` to post to your own backend) |
-| SEO, share image, favicon | `index.html`, `public/favicon.svg` |
-| Colors | `src/styles/tokens.css` |
-| Privacy / Terms | `src/components/Privacy.tsx`, `src/components/ToS.tsx` |
-
-### Adding your own funnels and websites
-
-1. Put the page's HTML in `public/funnels/` (single pages, shown 16:9) or `public/samples/` (full websites, shown 3:4).
-2. Add an entry to `src/data/funnels.ts`.
-3. Run `node scripts/make-thumbs.mjs` to render the thumbnails. It uses the Playwright install that comes with the dev dependencies (run `npx playwright install chromium` once if needed).
-
-To regenerate the placeholder pages: `node scripts/make-placeholder-sites.mjs`.
+| Featured funnels and website samples | `src/data/funnels.ts` |
+| Page copy and section text | `src/components/` |
+| Design colors and theme tokens | `src/styles/tokens.css` |
+| Profile image | `public/avatar.svg` |
+| SEO metadata and favicon | `index.html`, `public/favicon.svg` |
 
 ## Notes
 
-- The background shader measures the visitor's frame rate and steps down on slow machines (`src/lib/perf.ts`). Keep any large `backdrop-filter` blur off the layers above it, because blur over an animated canvas is the most expensive thing on the page.
-- From 1100px down, the site switches to the phone layout. `src/styles/mobile-app.css` owns its components (`TabBar`, `QuickMenu`, `HomeMobile`); `src/styles/mobile-pass.css` holds the motion (the tab pill, the bar hiding on scroll, page arrival, tile depth) and the native-feel fixes. Everything respects `prefers-reduced-motion` and the site's own Reduce motion switch.
-- Anything new you add above the fold on Home must join the intro hold-back list in `src/styles/boot.css`. Otherwise it shows through the intro animation.
+- The layout is designed to feel personal, premium, and easy to scale as my portfolio grows.
+- The site includes both desktop and mobile layouts, with the mobile app experience activated at smaller breakpoints.
+- Any new content added above the fold should be considered in relation to the intro animation and motion design.
 
-## Credits
+## Contact
 
-- Contour background technique inspired by the landonorris.com site by OFF+BRAND. The simplex noise is Ashima Arts / Ian McEwan (MIT).
-- Icons: [Phosphor](https://phosphoricons.com) (MIT). Tool logos in `public/icons/` are trademarks of their owners and are included as examples only.
-- Font: Poppins (SIL Open Font License).
+Use the contact links and form inside the site to connect with me about projects, collaborations, or freelance work.
 
 ## License
 
-[PolyForm Noncommercial 1.0.0](LICENSE), plus one extra permission: you can use it for **your own** portfolio, even if that portfolio promotes your paid services.
-
-What it does not allow without a commercial license: selling or reselling this template, or building portfolio sites for other people for payment. For a commercial license, email brewedops@gmail.com.
-
-Versions up to tag `v1.0.0-mit` (commit d3c05da) were MIT and stay MIT. Everything after that is under the license above.
+This project is for my personal portfolio use and is not intended for resale or reuse as a template for other people.
